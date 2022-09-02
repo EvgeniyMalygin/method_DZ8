@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
 
     public static boolean checkLeapYear(int year){
@@ -15,6 +17,26 @@ public class Main {
             }
         }
     }
+    public static String versionProgramm (int clientOS, int clientDeviceYear){
+        int currentYear = LocalDate.now().getYear();
+        if (clientDeviceYear < currentYear && clientOS == 0)
+        {
+            return "Установите облегчённую версию приложения для iOS по ссылке";
+        }
+        if (clientDeviceYear < currentYear && clientOS == 1)
+        {
+            return  "Установите облегчённую версию приложения для Android по ссылке";
+        }
+        if (clientOS == 0 && clientDeviceYear >= currentYear)
+        {
+            return "Установите версию приложения для iOS по ссылке";
+        }
+        if (clientOS == 1 && clientDeviceYear >= currentYear)
+        {
+            return "Установите версию приложения для Android по ссылке";
+        }
+        return "Ошибочные данные";
+    }
     public static void main(String[] args) {
         // Задание 1
         System.out.println("========== Задание 1 ==========");
@@ -25,5 +47,10 @@ public class Main {
         {
             System.out.println(year + " год невисокосный");
         }
+        // Задание 2
+        System.out.println("========== Задание 2 ==========");
+        int clientOS = 1;
+        int clientDeviceYear = 2022;
+        System.out.println(versionProgramm(clientOS, clientDeviceYear));
     }
 }
