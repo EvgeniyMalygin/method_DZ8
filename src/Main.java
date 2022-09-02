@@ -37,6 +37,21 @@ public class Main {
         }
         return "Ошибочные данные";
     }
+    public static int dayForDelivery (int dist) {
+        int quantityDayForDelivery = 1;
+        if (dist <= 20) {
+            return quantityDayForDelivery;
+        } else {
+            if (20 < dist && dist < 60) {
+                return quantityDayForDelivery + 1;
+            } else {
+                if (60 <= dist && dist <= 100) {
+                    return quantityDayForDelivery + 2;
+                }
+            }
+            return 0;
+        }
+    }
     public static void main(String[] args) {
         // Задание 1
         System.out.println("========== Задание 1 ==========");
@@ -49,8 +64,18 @@ public class Main {
         }
         // Задание 2
         System.out.println("========== Задание 2 ==========");
-        int clientOS = 1;
-        int clientDeviceYear = 2022;
+        int clientOS = 0; // версия ОС на клиентском смартфоне (0 - iOS, 1- Android)
+        int clientDeviceYear = 2015; // год выпуска смартфона клиента
         System.out.println(versionProgramm(clientOS, clientDeviceYear));
+
+        // Задание 3
+        System.out.println("========== Задание 3 ==========");
+        int deliveryDistance = 95;
+        if (dayForDelivery(deliveryDistance) > 0) {
+            System.out.println("Потребуется дней: " + dayForDelivery(deliveryDistance));
+        }else
+        {
+            System.out.println("В данный адрес доставка неосуществляется");
+        }
     }
 }
