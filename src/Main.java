@@ -1,5 +1,5 @@
 import java.time.LocalDate;
-import java.util.Arrays;
+
 
 public class Main {
 
@@ -35,18 +35,16 @@ public class Main {
     }
     public static int dayForDelivery (int dist) {
         int quantityDayForDelivery = 1;
-        if (dist <= 20) {
+        if (dist <= 20)
+        {
             return quantityDayForDelivery;
-        } else {
+        } else
+        {
             if (20 < dist && dist < 60) {
                 return quantityDayForDelivery + 1;
-            } else {
-                if (60 <= dist && dist <= 100) {
-                    return quantityDayForDelivery + 2;
-                }
             }
-            return 0;
         }
+        return quantityDayForDelivery + 2;
     }
     public static void reverseMass (int [] arr){
         int temp = 0;
@@ -82,12 +80,7 @@ public class Main {
         // Задание 3
         System.out.println("========== Задание 3 ==========");
         int deliveryDistance = 95;
-        if (dayForDelivery(deliveryDistance) > 0) {
             System.out.println("Потребуется дней: " + dayForDelivery(deliveryDistance));
-        }else
-        {
-            System.out.println("В данный адрес доставка неосуществляется");
-        }
 
         // Задание 4
         System.out.println("========== Задание 4 ==========");
