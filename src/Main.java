@@ -4,20 +4,15 @@ import java.util.Arrays;
 public class Main {
 
     public static boolean checkLeapYear(int year){
-        if (year % 100 == 0 && year % 400 == 0)
+        if ((year % 100 == 0 && year % 400 == 0) || (year % 4 == 0 && year % 100 !=0))
         {
             return true;
         } else
         {
-            if (year % 4 == 0 && year % 100 !=0)
-            {
-                return true;
-            }else
-            {
                 return false;
-            }
         }
     }
+
     public static String versionProgram (int clientOS, int clientDeviceYear){
         int currentYear = LocalDate.now().getYear();
         if (clientDeviceYear < currentYear && clientOS == 0)
